@@ -1,3 +1,7 @@
+/**
+* Author: Hemant Tripathi
+*/
+
 //This is a Stack program in CPP
 #include <iostream>
 using namespace std;
