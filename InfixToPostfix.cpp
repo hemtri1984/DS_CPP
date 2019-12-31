@@ -1,3 +1,7 @@
+/**
+* Author: Hemant Tripathi
+*/
+
 //This program will convert infix notation to postfix
 //Condition: All numbers must be positive
 
