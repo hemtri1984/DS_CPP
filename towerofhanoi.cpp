@@ -9,10 +9,16 @@ void htower(int n, char from, char to, char aux);
 
 int main() {
 	int disks;
-	cout << "Enter the number of disks you want to iterate?" << endl;
+	cout << "Enter the number of disks you want to iterate (max 10)?" << endl;
 	cin >> disks;
 
-	htower(disks, 'A', 'B', 'C');
+	if(disks > 10) {
+		cout << "Memory Overflow. Max 10 is allowed" << endl;
+	}else if(disks < 1) {
+		cout << "Invalid Input" << endl;
+	} else {
+		htower(disks, 'A', 'B', 'C');
+	}
 
 	return 0;
 }
