@@ -29,7 +29,7 @@ void quickSort(int x[], int lb, int ub) {
         int down = lb;
 
         while(down < up) {
-                while(x[down] <= a && down < up) {
+                while(x[down] <= a && down < ub) {
                         down++;
                 }
           	while(x[up] > a) {
