@@ -13,7 +13,21 @@ void heapify(int arr[], int totalNodes, int father);
 
 int main() {
 	int dataArray[MAXHEAPSIZE] = {25, 57, 48, 37, 12, 92, 86, 33, 40};
-	heapsort(dataArray);
+	
+	//Heapify array (build heap tree)
+        for(int i=MAXHEAPSIZE/2 -1; i >= 0; i--) {
+                heapify(dataArray, MAXHEAPSIZE, i);
+        }
+
+        //Now one by one extract elements from top of heap
+        for(int i = MAXHEAPSIZE-1; i >= 0; i--) {
+                int tmp = dataArray[0];
+                dataArray[0] = dataArray[i];
+                dataArray[i] = tmp;
+
+                //heapify the array again
+                heapify(dataArray, i, 0);
+        }
 
 	cout << "####################### Result ########################";
 	cout << "After successful heap sort, sorted arrays are:";
@@ -23,24 +37,6 @@ int main() {
 	cout << endl;
 
 	return 0;
-}
-
-
-void heapsort(int arr[]) {
-	//Heapify array (build heap tree)
-	for(int i=MAXHEAPSIZE/2 -1; i >= 0; i--) {
-		heapify(arr, MAXHEAPSIZE, i);
-	}
-
-	//Now one by one extract elements from top of heap
-	for(int i = MAXHEAPSIZE-1; i >= 0; i--) {
-		int tmp = arr[0];
-		arr[0] = arr[i];
-		arr[i] = tmp;
-
-		//heapify the array again
-		heapify(arr, i, 0);
-	}
 }
 
 void heapify(int arr[], int totalNodes, int father) {
