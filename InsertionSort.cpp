@@ -15,6 +15,7 @@ int main() {
 
 	for (int i=1; i<MAXSIZE; i++) {
 		for(int j=i; j > 0; j--) {
+			cout << "Comparison between "<<dataArray[j]<<" and "<<dataArray[j-1] << endl;
 			if(dataArray[j] < dataArray[j-1]) {
 				//Swap the data of i and j position
 				int tmp = dataArray[j];
