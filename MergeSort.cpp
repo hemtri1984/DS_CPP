@@ -52,20 +52,14 @@ void mergeSort(int arr[], int lb, int ub) {
 		}
 	}
 	cout << "i = "<<i<<"; high1 = "<<high1<<endl;
-	if(i<=high1) {
-		cout << "i <= high1"<<endl;
-		while(i <= high1) {
-			cout<<"tmpArr["<<count<<"] = arr["<<i<<"]"<<endl;
-			tmpArr[count++] = arr[i++];
-		}
+	while(i <= high1) {
+		cout<<"tmpArr["<<count<<"] = arr["<<i<<"]"<<endl;
+		tmpArr[count++] = arr[i++];
 	}
 	cout << "j = "<<j<<"; high2 = "<<high2<<endl;
-	if(j <= high2) {
-		cout << "j <= high2"<<endl;
-		while(j <= high2) {
-			cout << "tmpArr["<<count<<"] = arr["<<j<<"]"<<endl;
-			tmpArr[count++] = arr[j++];
-		}
+	while(j <= high2) {
+		cout << "tmpArr["<<count<<"] = arr["<<j<<"]"<<endl;
+		tmpArr[count++] = arr[j++];
 	}
 	//Now move all the sorted element from tmpArray to main Array
 	for(int i=0; i < totalLength;i++) {
