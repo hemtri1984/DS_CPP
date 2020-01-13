@@ -17,6 +17,7 @@ bool isRight(struct NodePtr* ptr);
 void showInorder(struct NodePtr* ptr);
 void showPreorder(struct NodePtr* ptr);
 void showPostorder(struct NodePtr* ptr);
+NodePtr* searchBST(struct NodePtr* ptr, int data);
 
 int main() {
 	cout << "#########Program to create and traversal through binary tree##########" << endl;
@@ -33,14 +34,15 @@ int main() {
 		cout << "3. Preorder Traversal to all nodes" << endl;
 		cout << "4. Inorder Traversal to all nodes" << endl;
 		cout << "5. Postorder Traversal to all nodes" << endl;
-		cout << "6. Exit" << endl;
+		cout << "6. Search an element in BST" << endl;
+		cout << "7. Exit" << endl;
 
 		cout << "Enter your choice" << endl;
 		int choice;
 		cin >> choice;
 
-		if(choice < 1 || choice > 6) {
-			cout << "Invalid input. Please choose between 1 to 6" << endl;
+		if(choice < 1 || choice > 7) {
+			cout << "Invalid input. Please choose between 1 to 7" << endl;
 			continue;
 		}
 
@@ -105,6 +107,19 @@ int main() {
 				break;
 
 			case 6:
+				cout << "Enter the element you want to search in BST"<<endl;
+				int element;
+				cin >> element;
+				NodePtr* searchElement;
+				searchElement = searchBST(tree, element);
+				if(searchElement != NULL) {
+					cout << "Search element found!"<<endl;
+				} else {
+					cout << "Element not found!"<<endl;
+				}
+				break;
+
+			case 7:
 				isExit = true;
 				break;
 
@@ -180,4 +195,17 @@ void showPostorder(struct NodePtr* ptr) {
         }
 	cout << "\t" << ptr->info;
 
+}
+
+NodePtr* searchBST(struct NodePtr* tree, int data) {
+	if(tree == NULL) {
+		return tree;
+	} else {
+		struct NodePtr* ptr;
+		ptr = tree;
+		while(ptr != NULL && data != ptr->info) {
+			ptr = (data < ptr->info)?ptr = ptr->left : ptr=ptr->right;
+		}
+		return ptr;
+	}
 }
