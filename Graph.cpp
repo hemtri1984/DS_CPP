@@ -21,9 +21,8 @@ int main() {
 		}
 		cout << "Select an option:"<<endl;
 		cout << "1. Add two vertex" << endl;
-		cout << "2. Delete any vertex" << endl;
-		cout << "3. Show graph" << endl;
-		cout << "4. Exit" << endl;
+		cout << "2. Show graph" << endl;
+		cout << "3. Exit" << endl;
 
 		int option;
 		cin >> option;
@@ -47,10 +46,6 @@ int main() {
 				break;
 
 			case 2:
-
-				break;
-
-			case 3:
 				cout << "Generating all routes of graph" << endl;
 				for(int i=0; i<totalVertex; i++) {
 					cout << "Adjacency List of vertex "<<i<<endl<<"Head";
@@ -61,7 +56,7 @@ int main() {
 				}
 				break;
 
-			case 4:
+			case 3:
 				cout << "Terminating program" << endl;
 				isExit = true;
 				break;
