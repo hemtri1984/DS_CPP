@@ -19,7 +19,7 @@ int main() {
 }
 
 void mergeSort(int arr[], int lb, int ub) {
-	if (arr[lb] == arr[ub]) {
+	if (lb == ub) {
 		return;
 	}
 
