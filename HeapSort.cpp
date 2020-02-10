@@ -8,7 +8,6 @@ using namespace std;
 
 #define MAXHEAPSIZE 9
 
-void heapsort(int arr[]);
 void heapify(int arr[], int totalNodes, int father);
 
 int main() {
