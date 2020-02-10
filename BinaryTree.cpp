@@ -18,6 +18,7 @@ void showInorder(struct NodePtr* ptr);
 void showPreorder(struct NodePtr* ptr);
 void showPostorder(struct NodePtr* ptr);
 NodePtr* searchBST(struct NodePtr* ptr, int data);
+int getBSTHeight(struct NodePtr* ptr);
 
 int main() {
 	cout << "#########Program to create and traversal through binary tree##########" << endl;
@@ -35,13 +36,14 @@ int main() {
 		cout << "4. Inorder Traversal to all nodes" << endl;
 		cout << "5. Postorder Traversal to all nodes" << endl;
 		cout << "6. Search an element in BST" << endl;
-		cout << "7. Exit" << endl;
+		cout << "7. Find Hight of BST" << endl;
+		cout << "8. Exit" << endl;
 
 		cout << "Enter your choice" << endl;
 		int choice;
 		cin >> choice;
 
-		if(choice < 1 || choice > 7) {
+		if(choice < 1 || choice > 8) {
 			cout << "Invalid input. Please choose between 1 to 7" << endl;
 			continue;
 		}
@@ -120,6 +122,13 @@ int main() {
 				break;
 
 			case 7:
+				cout << "Finding height of Binary Search Tree" << endl;
+				int height;
+				height =  getBSTHeight(tree);
+				cout << "Height of tree : "<<height<<endl;
+				break;
+
+			case 8:
 				isExit = true;
 				break;
 
@@ -208,4 +217,12 @@ NodePtr* searchBST(struct NodePtr* tree, int data) {
 		}
 		return ptr;
 	}
+}
+
+int getBSTHeight(struct NodePtr* ptr) {
+	if(ptr == NULL) return -1;
+	int leftHeight, rightHeight;
+	leftHeight = getBSTHeight(ptr->left);
+	rightHeight = getBSTHeight(ptr->right);
+	return (leftHeight > rightHeight)?leftHeight+1:rightHeight+1;
 }
